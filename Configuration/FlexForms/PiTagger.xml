@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					
+					<switchableControllerActions>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.view</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Textcloud</numIndex>
+										<numIndex index="1">Tag->textcloud</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">List</numIndex>
+										<numIndex index="1">Tag->list</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Flashcloud</numIndex>
+										<numIndex index="1">Tag->flashcloud</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>	
+					
+					<settings.amount>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.amount</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>int</eval>
+								<min>2</min>
+								<max>250</max>
+								<default>15</default>
+								<wizards type="array">
+									<_PADDING type="integer">2</_PADDING>
+									<slider type="array">
+										<type>slider</type>
+										<step>2</step>
+									</slider>
+								</wizards>								
+							</config>
+						</TCEforms>
+					</settings.amount>
+					
+				</el>
+			</ROOT>
+		</sDEF>
+		
+	</sheets>
+</T3DataStructure>

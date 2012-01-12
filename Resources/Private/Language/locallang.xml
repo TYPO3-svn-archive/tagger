@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Blog extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_tagger_domain_model_tag">Tag</label>
+			<label index="tx_tagger_domain_model_tag.title">Title</label>
+			<label index="tx_tagger_domain_model_tag.slug">Slug</label>
+			<label index="tx_tagger_domain_model_tag.link">Link</label>
+			<label index="tx_tagger_domain_model_tag.valuation">Valuation</label>
+			<label index="tx_tagger_domain_model_tag.content">Content</label>
+			<label index="flexform.configuration">Configuration</label>
+			<label index="flexform.view">View</label>
+			<label index="flexform.amount">Amount</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_tagger_domain_model_tag">Tag</label>
+			<label index="tx_tagger_domain_model_tag.title">Titel</label>
+			<label index="tx_tagger_domain_model_tag.slug">Slug</label>
+			<label index="tx_tagger_domain_model_tag.link">Link</label>
+			<label index="tx_tagger_domain_model_tag.valuation">Wertung</label>
+			<label index="tx_tagger_domain_model_tag.content">Inhalte</label>
+			<label index="flexform.configuration">Konfiguration</label>
+			<label index="flexform.view">Ansicht</label>
+			<label index="flexform.amount">Anzahl</label>
+		</languageKey>
+	</data>
+</T3locallang>
