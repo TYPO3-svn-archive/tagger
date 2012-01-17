@@ -32,6 +32,26 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	protected $title;
 
 	/**
+	 * @var string 
+	 */
+	protected $slug;
+
+	/**
+	 * @var string 
+	 */
+	protected $link;
+
+	/**
+	 * @var float 
+	 */
+	protected $valuation;
+
+	/**
+	 * @var string 
+	 */
+	protected $content;
+
+	/**
 	 * @return string 
 	 */
 	public function getTitle() {
@@ -39,10 +59,84 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
+	 *
+	 * @return string 
+	 */
+	public function getSlug() {
+		return $this->slug;
+	}
+
+	/**
+	 *
+	 * @return string 
+	 */
+	public function getLink() {
+		if (trim($this->link) == '')
+			return FALSE;
+		return $this->link;
+	}
+
+	/**
+	 *
+	 * @return float 
+	 */
+	public function getValuation() {
+		return (float) $this->valuation;
+	}
+
+	/**
+	 *
+	 * @return string 
+	 */
+	public function getContent() {
+		return $this->content;
+	}
+
+	/**
 	 * @param string $title 
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+
+	/**
+	 *
+	 * @param string $slug 
+	 */
+	public function setSlug($slug) {
+		$this->slug = $slug;
+	}
+
+	/**
+	 *
+	 * @param string $link 
+	 */
+	public function setLink($link) {
+		$this->link = $link;
+	}
+
+	/**
+	 *
+	 * @param float $valuation 
+	 */
+	public function setValuation($valuation) {
+		$this->valuation = $valuation;
+	}
+
+	/**
+	 *
+	 * @param string $content 
+	 */
+	public function setContent($content) {
+		$this->content = $content;
+	}
+
+	/**
+	 * Get the real valuation for the tag cloud generator
+	 * @return integer
+	 */
+	public function getValuationSize() {
+		return rand(8, 30);
 	}
 
 }

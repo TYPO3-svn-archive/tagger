@@ -24,36 +24,18 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
-class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Tagger_Exception extends Tx_Extbase_Exception {
 
 	/**
-	 * @var Tx_Tagger_Domain_Model_Tag 
-	 */
-	protected $tagRepository;
-
-	/**
-	 * @param Tx_Tagger_Domain_Repository_TagRepository $tagRepository 
-	 */
-	public function injectTagRepository(Tx_Tagger_Domain_Repository_TagRepository $tagRepository) {
-		$this->tagRepository = $tagRepository;
-	}
-
-	/**
+	 * Add the wiki Link in Front of the Error Message
 	 * 
+	 * @param string $message
+	 * @param integer $code
+	 * @param mixed $previous 
 	 */
-	public function textcloudAction() {
-		
-		#throw new Tx_Tagger_Exception('Das ist die Fehlermeldung', 12345);
-		
-		$this->view->assign('tags', $this->tagRepository->findAll());
-	}
-
-	/**
-	 * 
-	 */
-	public function listAction() {
-		
+	public function __construct($message, $code = NULL, $previous = NULL) {
+		$message = 'Tagger Extension Errror: ' . $message . ' --- More Information in the Tager Wiki Code (<a href="http://forge.typo3.org/projects/extension-tagger/wiki/Errors#' . $code . '">More information</a>) or TYPO3 Wiki ';
+		parent::__construct($message, $code, $previous);
 	}
 
 }
-

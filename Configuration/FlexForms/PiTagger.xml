@@ -5,7 +5,8 @@
 	</meta>
 	<sheets>
 		
-		<sDEF>
+		
+		<sVIEW>
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.configuration</sheetTitle>
@@ -37,6 +38,128 @@
 						</TCEforms>
 					</switchableControllerActions>	
 					
+					<!-- minFontsize (Classes from) maxFontsize (Classes to) Separator -->
+					<!-- - Link konfiguration  PID - Parameter -->				
+				</el>
+			</ROOT>
+		</sVIEW>
+		
+		
+		<sPRE>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.preperation</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+									
+					<settings.datasorting>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.sorting</label>
+							<config>
+								<type>select</type>
+								<default>random</default>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Weight</numIndex>
+										<numIndex index="1">weight</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Alphabethicaly,</numIndex>
+										<numIndex index="1">alphabethicaly,</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.datasorting>
+									
+					<settings.dataordering>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.ordering</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">ASC</numIndex>
+										<numIndex index="1">asc</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">DESC</numIndex>
+										<numIndex index="1">desc</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.dataordering>
+						<!-- - 
+- Weight scale
+(http://typo3.org/typo3temp/tx_terdoc/documentscache/v/g/vge_tagcloud-1.6.0/docbook/pictures/10000000000001AD000002A43684416C.png)
+
+-->
+					
+				</el>
+			</ROOT>
+		</sPRE>
+		
+		
+		<sDATA>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.dataselection</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+									
+					<settings.sorting>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.sorting</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">Weight</numIndex>
+										<numIndex index="1">weight</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Random</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Alphabethicaly,</numIndex>
+										<numIndex index="1">alphabethicaly,</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.sorting>
+									
+					<settings.ordering>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.ordering</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">ASC</numIndex>
+										<numIndex index="1">asc</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">DESC</numIndex>
+										<numIndex index="1">desc</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.ordering>
+					
 					<settings.amount>
 						<TCEforms>
 							<exclude>1</exclude>
@@ -46,8 +169,12 @@
 								<size>5</size>
 								<eval>int</eval>
 								<min>2</min>
-								<max>250</max>
+								<max>150</max>
 								<default>15</default>
+								<range>
+									<lower>2</lower>
+									<upper>150</upper>
+								</range>
 								<wizards type="array">
 									<_PADDING type="integer">2</_PADDING>
 									<slider type="array">
@@ -59,9 +186,26 @@
 						</TCEforms>
 					</settings.amount>
 					
+					<settings.relation>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.relation</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Tx_Tagger_Service_FlexformSelection->addReleations</itemsProcFunc>
+								<renderMode>checkbox</renderMode>
+								<multiple>1</multiple>
+								<size>5</size>
+								<minitems>1</minitems>
+								<maxitems>99</maxitems>
+							</config>
+						</TCEforms>
+					</settings.relation>
+					
+					
 				</el>
 			</ROOT>
-		</sDEF>
+		</sDATA>
 		
 	</sheets>
 </T3DataStructure>

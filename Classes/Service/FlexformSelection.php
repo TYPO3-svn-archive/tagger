@@ -24,36 +24,17 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  * ************************************************************* */
 
-class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Tagger_Service_FlexformSelection {
 
-	/**
-	 * @var Tx_Tagger_Domain_Model_Tag 
-	 */
-	protected $tagRepository;
-
-	/**
-	 * @param Tx_Tagger_Domain_Repository_TagRepository $tagRepository 
-	 */
-	public function injectTagRepository(Tx_Tagger_Domain_Repository_TagRepository $tagRepository) {
-		$this->tagRepository = $tagRepository;
-	}
-
-	/**
-	 * 
-	 */
-	public function textcloudAction() {
-		
-		#throw new Tx_Tagger_Exception('Das ist die Fehlermeldung', 12345);
-		
-		$this->view->assign('tags', $this->tagRepository->findAll());
-	}
-
-	/**
-	 * 
-	 */
-	public function listAction() {
-		
+	public function addReleations(&$config, &$obj) {
+		$rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('tablenames', 'tx_tagger_tag_mm', '1=1', 'tablenames', 'tablenames DESC');
+		foreach ($rows as $row) {
+			$table = $row['tablenames'];
+			$icon = t3lib_iconWorks::getIcon($table);
+			if (substr($icon, 0, 4) == 'gfx/')
+				$icon = str_replace('gfx/', '', $icon);
+			$config['items'][] = array($table, $table, $icon);
+		}
 	}
 
 }
-

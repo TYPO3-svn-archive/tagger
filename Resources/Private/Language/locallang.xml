@@ -13,6 +13,11 @@
 			<label index="tx_tagger_domain_model_tag.valuation">Valuation</label>
 			<label index="tx_tagger_domain_model_tag.content">Content</label>
 			<label index="flexform.configuration">Configuration</label>
+			<label index="flexform.preperation">Data preperation</label>
+			<label index="flexform.dataselection">Data selection</label>
+			<label index="flexform.sorting">Sorting</label>
+			<label index="flexform.ordering">Ordering</label>
+			<label index="flexform.relation">Relation</label>
 			<label index="flexform.view">View</label>
 			<label index="flexform.amount">Amount</label>
 		</languageKey>
@@ -24,6 +29,11 @@
 			<label index="tx_tagger_domain_model_tag.valuation">Wertung</label>
 			<label index="tx_tagger_domain_model_tag.content">Inhalte</label>
 			<label index="flexform.configuration">Konfiguration</label>
+			<label index="flexform.preperation">Daten Aufbereitung</label>
+			<label index="flexform.dataselection">Daten Selektion</label>
+			<label index="flexform.sorting">Sortierung</label>
+			<label index="flexform.ordering">Ordnung</label>
+			<label index="flexform.relation">Relationen</label>
 			<label index="flexform.view">Ansicht</label>
 			<label index="flexform.amount">Anzahl</label>
 		</languageKey>

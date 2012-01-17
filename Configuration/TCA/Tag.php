@@ -109,7 +109,7 @@ $TCA['tx_tagger_domain_model_tag'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 20,
-				'eval' => 'trim,required'
+				'eval' => 'trim,unique'
 			),
 		),
 		'link' => array(
@@ -148,9 +148,9 @@ $TCA['tx_tagger_domain_model_tag'] = array(
 			'label' => 'LLL:EXT:tagger/Resources/Private/Language/locallang.xml:tx_tagger_domain_model_tag.valuation',
 			'config' => array(
 				'type' => 'input',
-				'size' => 8,
+				'size' => 6,
 				'eval' => 'double2',
-				'defualt' => '1.0',
+				'default' => '1.0',
 			),
 		),
 	),

@@ -27,6 +27,17 @@
 class Tx_Tagger_Domain_Repository_TagRepository extends Tx_Extbase_Persistence_Repository {
 
 	/**
+	 * Returns a query for objects of this repository
+	 *
+	 * @return Tx_Extbase_Persistence_QueryInterface
+	 */
+	public function createQuery() {
+		$query = parent::createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		return $query;
+	}
+
+	/**
 	 * Get Objects by random
 	 * 
 	 * @param int $count
