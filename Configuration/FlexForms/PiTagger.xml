@@ -53,10 +53,10 @@
 				<type>array</type>
 				<el>
 									
-					<settings.datasorting>
+					<settings.preperation.sorting>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.sorting</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:sorting</label>
 							<config>
 								<type>select</type>
 								<default>random</default>
@@ -70,18 +70,18 @@
 										<numIndex index="1">random</numIndex>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">Alphabethicaly,</numIndex>
-										<numIndex index="1">alphabethicaly,</numIndex>
+										<numIndex index="0">Alphabethicaly</numIndex>
+										<numIndex index="1">alphabethicaly</numIndex>
 									</numIndex>
 								</items>
 							</config>
 						</TCEforms>
-					</settings.datasorting>
+					</settings.preperation.sorting>
 									
-					<settings.dataordering>
+					<settings.preperation.ordering>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.ordering</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:ordering</label>
 							<config>
 								<type>select</type>
 								<items>
@@ -96,12 +96,44 @@
 								</items>
 							</config>
 						</TCEforms>
-					</settings.dataordering>
-						<!-- - 
-- Weight scale
-(http://typo3.org/typo3temp/tx_terdoc/documentscache/v/g/vge_tagcloud-1.6.0/docbook/pictures/10000000000001AD000002A43684416C.png)
-
--->
+					</settings.preperation.ordering>
+									
+					<settings.preperation.weightscale>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:weightscale</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="1">
+										<numIndex index="0">untouched</numIndex>
+										<numIndex index="1">untouched</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">Linear</numIndex>
+										<numIndex index="1">linear</numIndex>
+									</numIndex>
+									<numIndex index="0">
+										<numIndex index="0">....</numIndex>
+										<numIndex index="1">....</numIndex>
+									</numIndex>
+									<!-- http://typo3.org/typo3temp/tx_terdoc/documentscache/v/g/vge_tagcloud-1.6.0/docbook/pictures/10000000000001AD000002A43684416C.png -->
+								</items>
+							</config>
+						</TCEforms>
+					</settings.preperation.weightscale>
+									
+					<settings.preperation.linkconfiguration>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:linkconfiguration</label>
+							<config>
+								<type>text</type>
+								<default><![CDATA[parameter.data = TSFE:id
+additionalParams.dataWrap = &tx_tagger[tag]={field:uid}]]></default>
+							</config>
+						</TCEforms>
+					</settings.preperation.linkconfiguration>
 					
 				</el>
 			</ROOT>
@@ -116,10 +148,10 @@
 				<type>array</type>
 				<el>
 									
-					<settings.sorting>
+					<settings.selection.sorting>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.sorting</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:sorting</label>
 							<config>
 								<type>select</type>
 								<items>
@@ -132,20 +164,21 @@
 										<numIndex index="1">random</numIndex>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">Alphabethicaly,</numIndex>
-										<numIndex index="1">alphabethicaly,</numIndex>
+										<numIndex index="0">Alphabethicaly</numIndex>
+										<numIndex index="1">alphabethicaly</numIndex>
 									</numIndex>
 								</items>
 							</config>
 						</TCEforms>
-					</settings.sorting>
+					</settings.selection.sorting>
 									
-					<settings.ordering>
+					<settings.selection.ordering>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.ordering</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:ordering</label>
 							<config>
 								<type>select</type>
+								<default>desc</default>
 								<items>
 									<numIndex index="1">
 										<numIndex index="0">ASC</numIndex>
@@ -158,12 +191,12 @@
 								</items>
 							</config>
 						</TCEforms>
-					</settings.ordering>
+					</settings.selection.ordering>
 					
-					<settings.amount>
+					<settings.selection.amount>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.amount</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:amount</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -184,12 +217,12 @@
 								</wizards>								
 							</config>
 						</TCEforms>
-					</settings.amount>
+					</settings.selection.amount>
 					
-					<settings.relation>
+					<settings.selection.relation>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:flexform.relation</label>
+							<label>LLL:EXT:tagger/Resources/Private/Language/locallang.xml:relation</label>
 							<config>
 								<type>select</type>
 								<itemsProcFunc>Tx_Tagger_Service_FlexformSelection->addReleations</itemsProcFunc>
@@ -200,7 +233,7 @@
 								<maxitems>99</maxitems>
 							</config>
 						</TCEforms>
-					</settings.relation>
+					</settings.selection.relation>
 					
 					
 				</el>

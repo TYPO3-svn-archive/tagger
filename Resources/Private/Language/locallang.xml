@@ -15,11 +15,13 @@
 			<label index="flexform.configuration">Configuration</label>
 			<label index="flexform.preperation">Data preperation</label>
 			<label index="flexform.dataselection">Data selection</label>
-			<label index="flexform.sorting">Sorting</label>
-			<label index="flexform.ordering">Ordering</label>
-			<label index="flexform.relation">Relation</label>
-			<label index="flexform.view">View</label>
-			<label index="flexform.amount">Amount</label>
+			<label index="sorting">Sorting</label>
+			<label index="ordering">Ordering</label>
+			<label index="relation">Relation</label>
+			<label index="view">View</label>
+			<label index="amount">Amount</label>
+			<label index="weightscale">Weight scale</label>
+			<label index="linkconfiguration">Link configuration</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tx_tagger_domain_model_tag">Tag</label>
@@ -31,11 +33,13 @@
 			<label index="flexform.configuration">Konfiguration</label>
 			<label index="flexform.preperation">Daten Aufbereitung</label>
 			<label index="flexform.dataselection">Daten Selektion</label>
-			<label index="flexform.sorting">Sortierung</label>
-			<label index="flexform.ordering">Ordnung</label>
-			<label index="flexform.relation">Relationen</label>
-			<label index="flexform.view">Ansicht</label>
-			<label index="flexform.amount">Anzahl</label>
+			<label index="sorting">Sortierung</label>
+			<label index="ordering">Ordnung</label>
+			<label index="relation">Relationen</label>
+			<label index="view">Ansicht</label>
+			<label index="amount">Anzahl</label>
+			<label index="weightscale">Gewichtsverteilung</label>
+			<label index="linkconfiguration">Link Konfiguration</label>
 		</languageKey>
 	</data>
 </T3locallang>

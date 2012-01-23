@@ -38,6 +38,53 @@ class Tx_Tagger_Domain_Repository_TagRepository extends Tx_Extbase_Persistence_R
 	}
 
 	/**
+	 * Select the Tags by the given configuration
+	 * 
+	 * @param array|string $relations
+	 * @param string $sorting
+	 * @param string $ordering
+	 * @param integer $amount 
+	 * @return Tx_Extbase_Persistence_QueryResultInterface|array
+	 */
+	public function findByConfiguration($relations, $sorting, $ordering, $amount) {
+		if (!is_array($relations))
+			$relations = t3lib_div::trimExplode(',', $relations, TRUE);
+
+		switch ($sorting) {
+			case 'alphabethicaly':
+				$sorting = 'tx_tagger_domain_model_tag.title';
+				break;
+			case 'random':
+				$sorting = 'RAND()';
+				break;
+			case 'weight':
+			default:
+				$sorting = 'valuation';
+				break;
+		}
+
+		// Prepare relations
+		foreach ($relations as $key => $value) {
+			$relations[$key] = '"' . $value . '"';
+		}
+
+		$query = $this->createQuery();
+		$plainQuery = "SELECT tx_tagger_domain_model_tag.*, (tx_tagger_domain_model_tag.valuation*COUNT( slug )) as valuation, COUNT( slug ) as content
+					FROM 
+						tx_tagger_domain_model_tag, tx_tagger_tag_mm
+					WHERE 
+						" . (sizeof($relations) ? 'tx_tagger_tag_mm.tablenames IN (' . implode(',', $relations) . ') AND ' : '') . "tx_tagger_domain_model_tag.uid = tx_tagger_tag_mm.uid_local
+					GROUP BY 
+						slug
+					ORDER BY 
+						 " . $sorting . " " . $ordering . "
+					LIMIT 
+						" . intval($amount);
+		#echo $plainQuery;
+		return $query->statement($plainQuery)->execute();
+	}
+
+	/**
 	 * Get Objects by random
 	 * 
 	 * @param int $count
@@ -59,6 +106,15 @@ class Tx_Tagger_Domain_Repository_TagRepository extends Tx_Extbase_Persistence_R
 		$query = $this->createQuery();
 		$query->matching($query->in('uid', $ids));
 		return $query->execute();
+	}
+
+	/**
+	 * Return the current tablename
+	 * 
+	 * @return string
+	 */
+	protected function getTableName() {
+		return $this->persistenceManager->getBackend()->getDataMapper()->getDataMap($this->getRepositoryClassName())->getTableName();
 	}
 
 }

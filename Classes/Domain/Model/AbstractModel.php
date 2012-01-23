@@ -35,4 +35,19 @@ class Tx_Tagger_Domain_Model_AbstractModel extends Tx_Extbase_DomainObject_Abstr
 		
 	}
 
+	/**
+	 * 
+	 * @return array
+	 */
+	public function toArray() {
+		$vars = array();
+		$objectVars = array_keys(get_object_vars($this));
+		foreach ($objectVars as $var) {
+			if (method_exists($this, 'get' . ucfirst($var))) {
+				$vars[$var] = call_user_func(array($this, 'get' . ucfirst($var)));
+			}
+		}
+		return $vars;
+	}
+
 }

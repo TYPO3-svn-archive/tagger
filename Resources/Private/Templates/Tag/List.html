@@ -1,1 +1,7 @@
-List (ToDo)
+<div class="list">
+	<ul>
+		<f:for each="{tags}" as="tag">
+			<li><strong>{tag.title}</strong> - {tag-slug} - {tag.valuation}</li>
+		</f:for>
+	</ul>
+</div>
