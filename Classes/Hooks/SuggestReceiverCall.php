@@ -3,15 +3,14 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2010 Georg Ringer <typo3@ringerge.org> (baesd on news extension)
- *  (c) 2011 Tim Lochmüller
- * 
+ *  (c) 2012 Tim Lochmüller
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
+ *  the Free Software Foundation; either version 3 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -57,13 +56,13 @@ class Tx_Tagger_Hooks_SuggestReceiverCall {
 			$ajaxObj->setContentFormat('javascript');
 			$ajaxObj->setContent('');
 			$response = array(
-				$newTagId,
-				$request['item'],
-				'tx_tagger_domain_model_tag',
-				self::NEWS,
-				'tags',
-				'data[tx_news_domain_model_news][' . $newsUid . '][tags]',
-				$newsUid
+				 $newTagId,
+				 $request['item'],
+				 'tx_tagger_domain_model_tag',
+				 self::NEWS,
+				 'tags',
+				 'data[tx_news_domain_model_news][' . $newsUid . '][tags]',
+				 $newsUid
 			);
 			$ajaxObj->setJavascriptCallbackWrap(implode('-', $response));
 		} catch (Exception $e) {
@@ -82,7 +81,7 @@ class Tx_Tagger_Hooks_SuggestReceiverCall {
 		$tagUid = 0;
 
 		$record = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow(
-				'*', 'tx_tagger_domain_model_tag', 'deleted=0 AND title=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($request['item'], 'tx_tagger_domain_model_tag')
+				  '*', 'tx_tagger_domain_model_tag', 'deleted=0 AND title=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($request['item'], 'tx_tagger_domain_model_tag')
 		);
 		if (isset($record['uid'])) {
 			$tagUid = $record['uid'];

@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Tim Lochmüller
+ *  (c) 2012 Tim Lochmüller
  *  
  *  All rights reserved
  *
@@ -39,32 +39,30 @@ class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_Actio
 	}
 
 	/**
-	 * 
+	 * Render the textcloud
+	 * @return void
 	 */
 	public function textcloudAction() {
-
-		#$this->forward('list');
-
 		$tags = $this->getTags();
-
-
 		$this->view->assign('tags', $tags);
 	}
 
 	/**
-	 * 
+	 * Render a simple list
+	 * @return void
 	 */
 	public function listAction() {
-
 		$tags = $this->getTags();
-
 		$this->view->assign('tags', $tags);
 	}
 
 	/**
 	 * Get the Tags by the current configuration
 	 * 
-	 * @return Tx_Extbase_Persistence_QueryResultInterface|array 
+	 * @return Tx_Extbase_Persistence_QueryResultInterface|array
+	 * @todo Move the link to a pseudo field
+	 * @todo Sort the preparation
+	 * @todo weightscale
 	 */
 	protected function getTags() {
 		// Get the tags
@@ -79,7 +77,6 @@ class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_Actio
 		// Data preperation (weightscale)
 		#echo "<pre>";
 		#print_r($tags);
-		
 		// Data preperation (sorting)
 		switch ($this->settings['preperation']['sorting']) {
 			case 'random':
@@ -115,8 +112,8 @@ class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_Actio
 		$configuration = $parser->setup;
 
 		$configuration = array(
-			'value' => '',
-			'typolink.' => $parser->setup
+			 'value' => '',
+			 'typolink.' => $parser->setup
 		);
 		$configuration['typolink.']['returnLast'] = 'url';
 

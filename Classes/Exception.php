@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Tim Lochmüller
+ *  (c) 2012 Tim Lochmüller
  *  
  *  All rights reserved
  *

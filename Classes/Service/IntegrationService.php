@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Tim Lochmüller
+ *  (c) 2012 Tim Lochmüller
  *  
  *  All rights reserved
  *
@@ -34,30 +34,30 @@ class Tx_Tagger_Service_IntegrationService {
 	 */
 	public static function getTagFieldConfiguration($tableName) {
 		$config = array(
-			'type' => 'select',
-			'foreign_table' => 'tx_tagger_domain_model_tag',
-			'foreign_table_where' => 'ORDER BY tx_tagger_domain_model_tag.title',
-			'MM' => 'tx_tagger_tag_mm',
-			'MM_hasUidField' => TRUE,
-			'multiple' => FALSE,
-			'MM_opposite_field' => 'content',
-			'MM_match_fields' => array(
-				'tablenames' => $tableName
-			),
-			'size' => 5,
-			'autoSizeMax' => 20,
-			'minitems' => 0,
-			'maxitems' => 30,
-			'wizards' => array(
-				'_PADDING' => 2,
-				'_VERTICAL' => 1,
-				'suggest' => array(
-					'type' => 'suggest',
-					'default' => array(
-						'receiverClass' => 'Tx_Tagger_Hooks_SuggestReceiver'
-					),
-				),
-			),
+			 'type' => 'select',
+			 'foreign_table' => 'tx_tagger_domain_model_tag',
+			 'foreign_table_where' => 'ORDER BY tx_tagger_domain_model_tag.title',
+			 'MM' => 'tx_tagger_tag_mm',
+			 'MM_hasUidField' => TRUE,
+			 'multiple' => FALSE,
+			 'MM_opposite_field' => 'content',
+			 'MM_match_fields' => array(
+				  'tablenames' => $tableName
+			 ),
+			 'size' => 5,
+			 'autoSizeMax' => 20,
+			 'minitems' => 0,
+			 'maxitems' => 30,
+			 'wizards' => array(
+				  '_PADDING' => 2,
+				  '_VERTICAL' => 1,
+				  'suggest' => array(
+						'type' => 'suggest',
+						'default' => array(
+							 'receiverClass' => 'Tx_Tagger_Hooks_SuggestReceiver'
+						),
+				  ),
+			 ),
 		);
 
 		return $config;
@@ -71,12 +71,12 @@ class Tx_Tagger_Service_IntegrationService {
 	 */
 	public static function createTagRecord($title) {
 		$tcemainData = array(
-			'tx_tagger_domain_model_tag' => array(
-				'NEW' => array(
-					'pid' => 0,
-					'title' => $title
-				)
-			)
+			 'tx_tagger_domain_model_tag' => array(
+				  'NEW' => array(
+						'pid' => 0,
+						'title' => $title
+				  )
+			 )
 		);
 
 		/**
@@ -94,13 +94,13 @@ class Tx_Tagger_Service_IntegrationService {
 	 * 
 	 * @param string $table
 	 * @param integer $uid
-	 * @return array 
+	 * @return array
+	 * @TODO: implement
 	 */
 	public static function gerRelatedContent($table, $uid) {
 		$records = array();
-		
-		// @TODO: implement
-		
+
+
 		return $records;
 	}
 

@@ -130,7 +130,8 @@
 							<config>
 								<type>text</type>
 								<default><![CDATA[parameter.data = TSFE:id
-additionalParams.dataWrap = &tx_tagger[tag]={field:uid}]]></default>
+additionalParams.dataWrap = &tx_tagger[tag]={field:uid}]]>
+								</default>
 							</config>
 						</TCEforms>
 					</settings.preperation.linkconfiguration>

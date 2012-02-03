@@ -3,15 +3,14 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2010 Georg Ringer <typo3@ringerge.org> (baesd on news extension)
- *  (c) 2011 Tim Lochmüller
- * 
+ *  (c) 2012 Tim Lochmüller
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
+ *  the Free Software Foundation; either version 3 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -62,13 +61,13 @@ Ext.Ajax.request({
 			$link = implode(' ', explode(chr(10), $javaScriptCode));
 
 			$records['tx_tagger_domain_model_tag_' . strlen($text)] = array(
-				'text' => '<div onclick="' . $link . '">
+				 'text' => '<div onclick="' . $link . '">
                             <span class="suggest-path">
                                 <a>Kein Tage gefunden. Klicken zum erzeugen</a>
                             </span></div>',
-				'table' => 'tx_tagger_domain_model_tag',
-				'class' => 'suggest-noresults',
-				'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
+				 'table' => 'tx_tagger_domain_model_tag',
+				 'class' => 'suggest-noresults',
+				 'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
 			);
 			/// sprintf($GLOBALS['LANG']->sL('LLL:EXT:news/Resources/Private/Language/locallang_be.xml:tag_suggest'), $text)
 		}

@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Tim Lochmüller
+ *  (c) 2012 Tim Lochmüller
  *  
  *  All rights reserved
  *
@@ -26,6 +26,12 @@
 
 class Tx_Tagger_Service_FlexformSelection {
 
+	/**
+	 * Add the possible relation to the flexfor selection of the tagger plugin
+	 * 
+	 * @param array $config
+	 * @param object $obj 
+	 */
 	public function addReleations(&$config, &$obj) {
 		$rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('tablenames', 'tx_tagger_tag_mm', '1=1', 'tablenames', 'tablenames DESC');
 		foreach ($rows as $row) {
