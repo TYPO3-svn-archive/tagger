@@ -27,7 +27,8 @@
 class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * @var Tx_Tagger_Domain_Model_Tag 
+	 * @var Tx_Tagger_Domain_Model_Tag
+	 * @inject
 	 */
 	protected $tagRepository;
 
@@ -75,8 +76,6 @@ class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_Actio
 		}
 
 		// Data preperation (weightscale)
-		#echo "<pre>";
-		#print_r($tags);
 		// Data preperation (sorting)
 		switch ($this->settings['preperation']['sorting']) {
 			case 'random':
@@ -112,8 +111,8 @@ class Tx_Tagger_Controller_TagController extends Tx_Extbase_MVC_Controller_Actio
 		$configuration = $parser->setup;
 
 		$configuration = array(
-			 'value' => '',
-			 'typolink.' => $parser->setup
+			'value' => '',
+			'typolink.' => $parser->setup
 		);
 		$configuration['typolink.']['returnLast'] = 'url';
 

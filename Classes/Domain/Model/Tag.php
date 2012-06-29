@@ -59,7 +59,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @return string 
 	 */
 	public function getSlug() {
@@ -67,7 +66,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @return string 
 	 */
 	public function getLink() {
@@ -77,7 +75,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @return float 
 	 */
 	public function getValuation() {
@@ -85,7 +82,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @return string 
 	 */
 	public function getContent() {
@@ -100,7 +96,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @param string $slug 
 	 */
 	public function setSlug($slug) {
@@ -108,7 +103,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @param string $link 
 	 */
 	public function setLink($link) {
@@ -116,7 +110,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @param float $valuation 
 	 */
 	public function setValuation($valuation) {
@@ -124,7 +117,6 @@ class Tx_Tagger_Domain_Model_Tag extends Tx_Tagger_Domain_Model_AbstractModel {
 	}
 
 	/**
-	 *
 	 * @param string $content 
 	 */
 	public function setContent($content) {

@@ -25,8 +25,9 @@
  * ************************************************************* */
 
 class Tx_Tagger_Hooks_SuggestReceiverCall {
+
 	const TAG = 'tx_tagger_domain_model_tag';
-	const LLPATH = 'LLL:EXT:news/Resources/Private/Language/locallang_be.xml:tag_suggest_';
+	const LLPATH = 'LLL:EXT:tagger/Resources/Private/Language/locallang.xml:tag_suggest_';
 
 	/**
 	 * Create a tag
@@ -39,7 +40,6 @@ class Tx_Tagger_Hooks_SuggestReceiverCall {
 		$request = t3lib_div::_POST();
 
 		try {
-			throw new Exception('asd');
 			// check if a tag is submitted
 			if (!isset($request['item']) || empty($request['item'])) {
 				throw new Exception('error_no-tag');
@@ -56,18 +56,18 @@ class Tx_Tagger_Hooks_SuggestReceiverCall {
 			$ajaxObj->setContentFormat('javascript');
 			$ajaxObj->setContent('');
 			$response = array(
-				 $newTagId,
-				 $request['item'],
-				 'tx_tagger_domain_model_tag',
-				 self::NEWS,
-				 'tags',
-				 'data[tx_news_domain_model_news][' . $newsUid . '][tags]',
-				 $newsUid
+				$newTagId,
+				$request['item'],
+				'tx_tagger_domain_model_tag',
+				self::TAG,
+				'tags',
+				'data[tx_tagger_domain_model_tag][' . $newsUid . '][tags]',
+				$newsUid
 			);
 			$ajaxObj->setJavascriptCallbackWrap(implode('-', $response));
 		} catch (Exception $e) {
-			$errorMsg = $GLOBALS['LANG']->sL(self::LLPATH . $e->getMessage());
-			$ajaxObj->setError($errorMsg);
+			//$errorMsg = $GLOBALS['LANG']->sL(self::LLPATH . );
+			$ajaxObj->setError($e->getMessage());
 		}
 	}
 
@@ -81,7 +81,7 @@ class Tx_Tagger_Hooks_SuggestReceiverCall {
 		$tagUid = 0;
 
 		$record = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow(
-				  '*', 'tx_tagger_domain_model_tag', 'deleted=0 AND title=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($request['item'], 'tx_tagger_domain_model_tag')
+				'*', 'tx_tagger_domain_model_tag', 'deleted=0 AND title=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($request['item'], 'tx_tagger_domain_model_tag')
 		);
 		if (isset($record['uid'])) {
 			$tagUid = $record['uid'];

@@ -114,7 +114,7 @@ class Tx_Tagger_Domain_Repository_TagRepository extends Tx_Extbase_Persistence_R
 	 * @return string
 	 */
 	protected function getTableName() {
-		return $this->persistenceManager->getBackend()->getDataMapper()->getDataMap($this->getRepositoryClassName())->getTableName();
+		return $this->persistenceManager->getBackend()->getDataMapper()->getDataMap(get_class($this))->getTableName();
 	}
 
 }

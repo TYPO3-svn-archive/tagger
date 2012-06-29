@@ -61,13 +61,13 @@ Ext.Ajax.request({
 			$link = implode(' ', explode(chr(10), $javaScriptCode));
 
 			$records['tx_tagger_domain_model_tag_' . strlen($text)] = array(
-				 'text' => '<div onclick="' . $link . '">
+				'text' => '<div onclick="' . $link . '">
                             <span class="suggest-path">
                                 <a>Kein Tage gefunden. Klicken zum erzeugen</a>
                             </span></div>',
-				 'table' => 'tx_tagger_domain_model_tag',
-				 'class' => 'suggest-noresults',
-				 'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
+				'table' => 'tx_tagger_domain_model_tag',
+				'class' => 'suggest-noresults',
+				'style' => 'background-color:#E9F1FE !important;background-image:url(' . $this->getDummyIconPath() . ');',
 			);
 			/// sprintf($GLOBALS['LANG']->sL('LLL:EXT:news/Resources/Private/Language/locallang_be.xml:tag_suggest'), $text)
 		}
@@ -75,6 +75,11 @@ Ext.Ajax.request({
 		return $records;
 	}
 
+	/**
+	 * Get the icon of this database
+	 * 
+	 * @return string 
+	 */
 	private function getDummyIconPath() {
 		$icon = t3lib_iconWorks::getIcon('tx_tagger_domain_model_tag');
 		return t3lib_iconWorks::skinImg('', $icon, '', 1);
